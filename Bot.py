@@ -4,8 +4,6 @@ from discord.ext import commands
 
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
-TOKEN = 'MTM4MzQ1MDk1NjU0ODY2OTUyMQ.GwY-C9.dXZKu31KCtsgkHbflblfSsHi7qPW35f3S6D9bg'
-
 @bot.event
 async def on_ready():
     print("Bot online")
