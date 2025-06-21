@@ -2,6 +2,7 @@ import asyncio
 import os
 import discord
 from discord.ext import commands
+from keep_alive import keep_alive
 
 intents = discord.Intents.default()
 intents.members = True
@@ -62,5 +63,6 @@ async def poke(ctx, member: discord.Member):
     else:
         await ctx.send(f"{member.display_name} is not in a voice channel!")
         
+keep_alive()
 
 bot.run(os.getenv("BOT_TOKEN"))
