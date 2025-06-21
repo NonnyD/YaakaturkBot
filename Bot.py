@@ -5,7 +5,6 @@ from discord.ext import commands
 from keep_alive import keep_alive
 
 intents = discord.Intents.default()
-intents.message_content = True
 intents.members = True
 intents.voice_states = True
 
@@ -57,7 +56,7 @@ async def poke(ctx, member: discord.Member):
         original_channel = member.voice.channel
         temp_channel = None
         guild = ctx.guild
-        temp_channel = await guild.create_voice_channel(name="poke-temp", reason="Poke someone")
+        temp_channel = await guild.create_voice_channel(name="Pokeroom", reason="Poke someone")
 
         try:
 
