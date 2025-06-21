@@ -62,7 +62,6 @@ async def poke(ctx, member: discord.Member):
         try:
 
             await member.send(f"คุณถูก {ctx.author.display_name} poke! 😄")
-            await member.send(f"🔔 คุณถูก Poke โดย {interaction.user.display_name}:\n💬 {message}")
 
             await member.move_to(temp_channel)
             await member.move_to(original_channel)
