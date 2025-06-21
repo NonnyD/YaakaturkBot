@@ -62,6 +62,24 @@ async def poke(ctx, member: discord.Member):
             await temp_channel.delete()
     else:
         await ctx.send(f"{member.display_name} is not in a voice channel!")
+
+@bot.event
+async def on_member_join(member):
+    role_name = "Member"  # << ชื่อยศที่ต้องการแจก
+
+    guild = member.guild
+    role = discord.utils.get(guild.roles, name=role_name)
+
+    if role:
+        try:
+            await member.add_roles(role)
+            print(f"แจกยศ '{role_name}' ให้กับ {member.name}")
+        except discord.Forbidden:
+            print(f"❌ บอทไม่มีสิทธิ์แจกยศ '{role_name}'")
+        except Exception as e:
+            print(f"เกิดข้อผิดพลาด: {e}")
+    else:
+        print(f"⚠️ ไม่พบยศชื่อ '{role_name}' ในเซิร์ฟเวอร์")
         
 keep_alive()
 
